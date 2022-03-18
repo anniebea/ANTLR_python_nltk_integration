@@ -13,7 +13,9 @@ def main(argv):
     parser = Pam_v2Parser(stream)
     tree = parser.progr()
     treeString = Trees.toStringTree(tree, None, parser)
-
+    # Lai izvadītu koka String konsolē:
+    print(treeString)
+    # Lai izvadītu koka zīmējumu izlecošā logā:
     nltk.Tree.draw(nltk.Tree.fromstring(treeString))
 
 

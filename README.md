@@ -20,7 +20,7 @@ lai to varētu attēlot lietotājam vizuālā formātā.
 
 <h3>Lietotāja instrukcija iebūvētajai gramatikai Pam_v2</h3>
 
-Nepieciešams nodrošināt šādas _Python_ pakotnes:
+Nepieciešams nodrošināt ANTLR spraudni un šādas _Python_ pakotnes:
 * pip
 * nltk
 * antlr4-python3-runtime
@@ -56,3 +56,250 @@ Jaunas gramatikas uzstādīšanas soļi:
    2) pārmaina 14. rindas kodu, ievietojot "progr" vietā uzsākšanas komandu no gramatikas definējuma datnes.
 
 *********
+
+Piemērs izvadītam rezultātam:
+![img.png](img.png)
+
+Sistēmas atmiņā piemēra koks tiek uzglabāts `String` formātā, formatēti struktūra ir šāda:
+
+<pre>
+(progr
+   (series 
+      (stmt 
+         (loop while 
+            (log_expr 
+               (log_term 
+                  (log_elem true)
+               )
+            ) 
+         do 
+            (series 
+               (stmt 
+                  (cond_stmt if 
+                     (log_expr 
+                        (log_term 
+                           (log_elem 
+                              (condition 
+                                 (pos_condition 
+                                    (expr 
+                                       (term 
+                                          (elem x)
+                                       )
+                                    )
+                                 = 
+                                    (expr 
+                                       (term 
+                                          (elem true)
+                                       )
+                                    )
+                                 )
+                              )
+                           )
+                        and 
+                           (log_elem 
+                              (condition 
+                                 (neg_condition not 
+                                    (pos_condition 
+                                       (expr 
+                                          (term 
+                                             (elem y)
+                                          )
+                                       ) 
+                                    = 
+                                       (expr 
+                                          (term 
+                                             (elem false)
+                                          )
+                                       )
+                                    )  
+                                 )
+                              )
+                           )
+                        )
+                     ) 
+                  then 
+                     (series 
+                        (stmt 
+                           (assign_stmt z := 
+                              (expr 
+                                 (term 
+                                    (elem 1)
+                                 * 
+                                    (elem 2)
+                                 ) 
+                              + 
+                                 (term 
+                                    (elem 3)
+                                 * 
+                                    (elem 4)
+                                 / 
+                                    (elem 5)
+                                 )
+                              - 
+                                 (term 
+                                    (elem 1)
+                                 )
+                              )
+                           )
+                        )
+                     ) 
+                  else 
+                     (series 
+                        (stmt 
+                           (assign_stmt y := 
+                              (expr 
+                                 (term 
+                                    (elem false)
+                                 )
+                              )
+                           )
+                        )
+                     ) 
+                  fi)
+               )
+            ; 
+               (stmt 
+                  (cond_stmt if 
+                     (log_expr 
+                        (log_term 
+                           (log_elem 
+                              (condition 
+                                 (pos_condition 
+                                    (expr 
+                                       (term 
+                                          (elem x)
+                                       )
+                                    )
+                                 = 
+                                    (expr 
+                                       (term 
+                                          (elem false)
+                                       )
+                                    )
+                                 )
+                              )
+                           )
+                        )
+                     )
+                  then 
+                     (series 
+                        (stmt 
+                           (assign_stmt y := 
+                              (expr 
+                                 (term 
+                                    (elem 8)
+                                 )
+                              )
+                           )
+                        )
+                     )
+                  else 
+                     (series 
+                        (stmt 
+                           (assign_stmt x := 
+                              (expr 
+                                 (term 
+                                    (elem false)
+                                 )
+                              )
+                           )
+                        )
+                     ) 
+                  fi)
+               )
+            ; 
+               (stmt 
+                  (cond_stmt if 
+                     (log_expr 
+                        (log_term 
+                           (log_elem 
+                              (condition 
+                                 (pos_condition 
+                                    (expr 
+                                       (term 
+                                          (elem x)
+                                       )
+                                    ) 
+                                 < 
+                                    (expr 
+                                       (term 
+                                          (elem 2)
+                                       )
+                                    )
+                                 )
+                              )  
+                           )
+                        )
+                     )
+                  then 
+                     (series 
+                        (stmt 
+                           (cond_stmt if 
+                              (log_expr 
+                                 (log_term 
+                                    (log_elem 
+                                       (condition 
+                                          (pos_condition 
+                                             (expr 
+                                                (term 
+                                                   (elem x)
+                                                )
+                                             ) 
+                                          < 
+                                             (expr 
+                                                (term 
+                                                   (elem 2)
+                                                )
+                                             )
+                                          )
+                                       )
+                                    )
+                                 )
+                              ) 
+                           then 
+                              (series 
+                                 (stmt 
+                                    (assign_stmt c := 
+                                       (expr 
+                                          (term 
+                                             (elem 7)
+                                          )
+                                       )
+                                    )
+                                 )
+                              ) 
+                           else 
+                              (series 
+                                 (stmt 
+                                    (assign_stmt x := 
+                                       (expr 
+                                          (term 
+                                             (elem true)
+                                          )
+                                       )
+                                    )
+                                 )
+                              ) 
+                           fi)
+                        )
+                     ) 
+                  else 
+                     (series 
+                        (stmt 
+                           (assign_stmt x :=
+                              (expr 
+                                 (term    
+                                    (elem true)
+                                 )
+                              )
+                           )
+                        )
+                     ) 
+                  fi)
+               )
+            )
+         end)
+      )
+   )
+)
+</pre>
