@@ -25,9 +25,6 @@ Nepieciešams nodrošināt ANTLR spraudni un šādas _Python_ pakotnes:
 * nltk
 * antlr4-python3-runtime
 
-PyCharm IDE (jebkurā no versijām, arī bezmaksas) pakotnes var pievienot, 
-IDE lejasdaļā atverot šķirkli "_Python Packages_".
-
 Lai uzsāktu programmu, komandrindā ar "cd" komandu jānavigē līdz šī projekta 
 datņu mapei (automātiska darbība, ja izmanto _PyCharm_ iebūvēto termināli) un jāievada komanda `python main.py tests.txt`, 
 kur "tests.txt" ir projekta datņu mapē ievietotās ievades datnes nosaukums (obligāti jāiekļauj ".txt"). 
