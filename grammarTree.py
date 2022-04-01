@@ -1,9 +1,10 @@
 from antlr4 import *
 from antlr4.tree.Trees import Trees
+
+import customVisitor
 from Pam_v2_gen_py3.Pam_v2Lexer import Pam_v2Lexer
 from Pam_v2_gen_py3.Pam_v2Parser import Pam_v2Parser
 import nltk
-from interpreter import Interpreter
 
 
 def prepTree(argv, returnVal):
@@ -20,18 +21,23 @@ def prepTree(argv, returnVal):
     tree = parser.progr()   # progr - start rule
     treeString = Trees.toStringTree(tree, None, parser)
 
-    printer = Interpreter()
-    walker = ParseTreeWalker()
-    walker.walk(printer, tree)
+    # printer = Interpreter()
+    # walker = ParseTreeWalker()
+    # walker.walk(printer, tree)
+    #
+    # printer.printAllProps()
 
-    printer.printAllProps()
+    visitor = customVisitor.CustomVisitor()
+    result = visitor.visit(tree)
+    print("!!!!!!!")
+    print("RESULT: " + result)
 
     if returnVal == "treeString":
         return treeString
     elif returnVal == "tree":
         return tree
-    elif returnVal == "walker":
-        return walker
+    # elif returnVal == "walker":
+    #     return walker
     else:
         return "error - unspecified return value"
 

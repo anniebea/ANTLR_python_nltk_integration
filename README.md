@@ -52,13 +52,15 @@ Jaunas gramatikas uzstādīšanas soļi:
    1) pārmaina 4. un 5. rindu kodu, izmantojot jaunās gramatikas datnes;
    2) pārmaina 14. rindas kodu, ievietojot "progr" vietā uzsākšanas komandu no gramatikas definējuma datnes.
 
-Piemērs izvadītam koka izvedumam:
+Piemēri izvadītiem koka izvedumiem:
 ![img.png](img.png)
+![img_1.png](img_1.png)
 
 *********
 
 # ANTLR 4 REFERENCE
 
 Interpretators izteiksmēm: sākot no 132.lpp (**7.4 Labeling Rule Alternatives for Precise Event Methods**)
+Reāli jālasa no 134.lpp (7.5), kur ir runa par visitors, bet 7.4 palīdz labāk saprast.  
 
 https://dl.icdst.org/pdfs/files3/a91ace57a8c4c8cdd9f1663e1051bf93.pdf
