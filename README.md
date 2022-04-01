@@ -18,7 +18,7 @@ lai to varētu attēlot lietotājam vizuālā formātā.
 
 *********
 
-<h3>Lietotāja instrukcija iebūvētajai gramatikai Pam_v2</h3>
+# Lietotāja instrukcija iebūvētajai gramatikai Pam_v2
 
 Nepieciešams nodrošināt ANTLR spraudni un šādas _Python_ pakotnes:
 * pip
@@ -37,7 +37,7 @@ tiek izvadīts paziņojums konsolē, kurā uzsāk programmu.
 
 *********
 
-<h3>Uzstādīšanas nosacījumi jaunai gramatikai</h3>
+## Uzstādīšanas nosacījumi jaunai gramatikai
 
 Jaunas gramatikas uzstādīšanas soļi:
 1) ievieto datni ar gramatikas definējumu (datnes tips - _.g4_) projekta datņu mapē;
@@ -52,251 +52,13 @@ Jaunas gramatikas uzstādīšanas soļi:
    1) pārmaina 4. un 5. rindu kodu, izmantojot jaunās gramatikas datnes;
    2) pārmaina 14. rindas kodu, ievietojot "progr" vietā uzsākšanas komandu no gramatikas definējuma datnes.
 
-*********
-
-Piemērs izvadītam rezultātam:
+Piemērs izvadītam koka izvedumam:
 ![img.png](img.png)
 
-Sistēmas atmiņā piemēra koks tiek uzglabāts `String` formātā, formatēti struktūra ir šāda:
+*********
 
-<pre>
-(progr
-   (series 
-      (stmt 
-         (loop while 
-            (log_expr 
-               (log_term 
-                  (log_elem true)
-               )
-            ) 
-         do 
-            (series 
-               (stmt 
-                  (cond_stmt if 
-                     (log_expr 
-                        (log_term 
-                           (log_elem 
-                              (condition 
-                                 (pos_condition 
-                                    (expr 
-                                       (term 
-                                          (elem x)
-                                       )
-                                    )
-                                 = 
-                                    (expr 
-                                       (term 
-                                          (elem true)
-                                       )
-                                    )
-                                 )
-                              )
-                           )
-                        and 
-                           (log_elem 
-                              (condition 
-                                 (neg_condition not 
-                                    (pos_condition 
-                                       (expr 
-                                          (term 
-                                             (elem y)
-                                          )
-                                       ) 
-                                    = 
-                                       (expr 
-                                          (term 
-                                             (elem false)
-                                          )
-                                       )
-                                    )  
-                                 )
-                              )
-                           )
-                        )
-                     ) 
-                  then 
-                     (series 
-                        (stmt 
-                           (assign_stmt z := 
-                              (expr 
-                                 (term 
-                                    (elem 1)
-                                 * 
-                                    (elem 2)
-                                 ) 
-                              + 
-                                 (term 
-                                    (elem 3)
-                                 * 
-                                    (elem 4)
-                                 / 
-                                    (elem 5)
-                                 )
-                              - 
-                                 (term 
-                                    (elem 1)
-                                 )
-                              )
-                           )
-                        )
-                     ) 
-                  else 
-                     (series 
-                        (stmt 
-                           (assign_stmt y := 
-                              (expr 
-                                 (term 
-                                    (elem false)
-                                 )
-                              )
-                           )
-                        )
-                     ) 
-                  fi)
-               )
-            ; 
-               (stmt 
-                  (cond_stmt if 
-                     (log_expr 
-                        (log_term 
-                           (log_elem 
-                              (condition 
-                                 (pos_condition 
-                                    (expr 
-                                       (term 
-                                          (elem x)
-                                       )
-                                    )
-                                 = 
-                                    (expr 
-                                       (term 
-                                          (elem false)
-                                       )
-                                    )
-                                 )
-                              )
-                           )
-                        )
-                     )
-                  then 
-                     (series 
-                        (stmt 
-                           (assign_stmt y := 
-                              (expr 
-                                 (term 
-                                    (elem 8)
-                                 )
-                              )
-                           )
-                        )
-                     )
-                  else 
-                     (series 
-                        (stmt 
-                           (assign_stmt x := 
-                              (expr 
-                                 (term 
-                                    (elem false)
-                                 )
-                              )
-                           )
-                        )
-                     ) 
-                  fi)
-               )
-            ; 
-               (stmt 
-                  (cond_stmt if 
-                     (log_expr 
-                        (log_term 
-                           (log_elem 
-                              (condition 
-                                 (pos_condition 
-                                    (expr 
-                                       (term 
-                                          (elem x)
-                                       )
-                                    ) 
-                                 < 
-                                    (expr 
-                                       (term 
-                                          (elem 2)
-                                       )
-                                    )
-                                 )
-                              )  
-                           )
-                        )
-                     )
-                  then 
-                     (series 
-                        (stmt 
-                           (cond_stmt if 
-                              (log_expr 
-                                 (log_term 
-                                    (log_elem 
-                                       (condition 
-                                          (pos_condition 
-                                             (expr 
-                                                (term 
-                                                   (elem x)
-                                                )
-                                             ) 
-                                          < 
-                                             (expr 
-                                                (term 
-                                                   (elem 2)
-                                                )
-                                             )
-                                          )
-                                       )
-                                    )
-                                 )
-                              ) 
-                           then 
-                              (series 
-                                 (stmt 
-                                    (assign_stmt c := 
-                                       (expr 
-                                          (term 
-                                             (elem 7)
-                                          )
-                                       )
-                                    )
-                                 )
-                              ) 
-                           else 
-                              (series 
-                                 (stmt 
-                                    (assign_stmt x := 
-                                       (expr 
-                                          (term 
-                                             (elem true)
-                                          )
-                                       )
-                                    )
-                                 )
-                              ) 
-                           fi)
-                        )
-                     ) 
-                  else 
-                     (series 
-                        (stmt 
-                           (assign_stmt x :=
-                              (expr 
-                                 (term    
-                                    (elem true)
-                                 )
-                              )
-                           )
-                        )
-                     ) 
-                  fi)
-               )
-            )
-         end)
-      )
-   )
-)
-</pre>
+# ANTLR 4 REFERENCE
+
+Interpretators izteiksmēm: sākot no 132.lpp (**7.4 Labeling Rule Alternatives for Precise Event Methods**)
+
+https://dl.icdst.org/pdfs/files3/a91ace57a8c4c8cdd9f1663e1051bf93.pdf
