@@ -35,7 +35,7 @@ Loģiskās saites: "and" "or", konjunkcija saista ciešāk par disjunkciju
 
 log_expr            :       log_term (DISCJUNCTION log_term)*;
 log_term            :       log_elem (CONJUNCTION log_elem)*;
-log_elem            :       condition | BOOL | NOT BOOL | '(' log_expr ')';
+log_elem            :       condition | BOOL | NOT BOOL | LPARENTHESIS log_expr RPARENTHESIS;
 
 /**
 Negācijas nodrošinājums
@@ -51,13 +51,13 @@ Pamata matemātiskās darbības: "+"  "-"  "*"  "/"
 
 expr		        :	    term (WEAKOP term)*;
 term		        :	    elem (STRONGOP elem)*;
-elem		        :	    NUMBER | VARNAME | '(' expr ')' | BOOL;
+elem		        :	    NUMBER | VARNAME | LPARENTHESIS expr RPARENTHESIS | BOOL;
 
 /**
 Variables
 */
 
-//NEWLINE	            :	    '\r' ? '\n';
+NEWLINE	            :	    '\r' ? '\n';
 WEAKOP		        :	    '+' | '-';
 STRONGOP	        :	    '*' | '/';
 RELATION	        :	    '<>' | '=<' | '>='| '=' | '<' | '>';
@@ -66,6 +66,8 @@ CONJUNCTION         :       'and';
 DISCJUNCTION        :       'or';
 NOT                 :       'not';
 SEMICOLON           :       ';';
+LPARENTHESIS         :       '(';
+RPARENTHESIS         :       ')';
 
 NUMBER		        :	    [1-9][0-9]* ;
 VARNAME	            :	    ([a-z]|[A-Z]|'_') ([a-z]|[A-Z]|[0-9]|'_')*;

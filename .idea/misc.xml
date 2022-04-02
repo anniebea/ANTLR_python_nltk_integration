@@ -26,7 +26,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/Pam_v2.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="gen_py3" />
+          <option name="outputDir" value="Pam_v2_gen_py3" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="" />

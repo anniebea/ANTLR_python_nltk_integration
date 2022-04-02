@@ -20,17 +20,21 @@ def prepTree(argv, returnVal):
     parser = Pam_v2Parser(stream)
     tree = parser.progr()   # progr - start rule
     treeString = Trees.toStringTree(tree, None, parser)
+    treeString = treeString.replace("( ", "")
+    treeString = treeString.replace(" )", "")
 
+    # Listener rules
     # printer = Interpreter()
     # walker = ParseTreeWalker()
     # walker.walk(printer, tree)
     #
     # printer.printAllProps()
 
+    # Visitor rules
     visitor = customVisitor.CustomVisitor()
     result = visitor.visit(tree)
-    print("!!!!!!!")
-    print("RESULT: " + result)
+    # print("!!!!!!!")
+    print("RESULT: " + str(result))
 
     if returnVal == "treeString":
         return treeString
@@ -39,7 +43,7 @@ def prepTree(argv, returnVal):
     # elif returnVal == "walker":
     #     return walker
     else:
-        return "error - unspecified return value"
+        return "hey - unspecified return value"
 
 def printGrammarTree(argv):
     """

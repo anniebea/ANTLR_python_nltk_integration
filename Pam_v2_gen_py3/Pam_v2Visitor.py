@@ -1,4 +1,4 @@
-# Generated from C:/Users/anitr/OneDrive/Documents/__University/6sem/PVSUS/ANTLR_v1\Pam_v2.g4 by ANTLR 4.9.2
+# Generated from C:/Users/anitr/OneDrive/Documents/__University/6sem/PVSUS/MD1/ANTLR_py\Pam_v2.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .Pam_v2Parser import Pam_v2Parser
