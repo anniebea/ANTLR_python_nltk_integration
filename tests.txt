@@ -1,10 +1,10 @@
-while true do
-    if x=true and not y=false then z:=1*2+3*4/5-1
-    else y:=false fi;
-    if x=false then y:=8
-    else x:=false fi;
+while True do
+    if x=True and not y=False then z:=1*2+3*4/5-1
+    else y:=False fi;
+    if x=False then y:=8
+    else x:=False fi;
     if x<2 then
         if x<2 then c:=7
-        else x:=true fi
-    else x:=true fi
+        else x:=True fi
+    else x:=True fi
 end

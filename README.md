@@ -53,9 +53,8 @@ Jaunas gramatikas uzstādīšanas soļi:
    2) pārmaina 14. rindas kodu, ievietojot "progr" vietā uzsākšanas komandu no gramatikas definējuma datnes.
 
 Piemēri izvadītiem koka izvedumiem:
-![img.png](img.png)
-![img_1.png](img_1.png)
 ![img_2.png](img_2.png)
+![img_4.png](img_4.png)
 *********
 
 # ANTLR 4 REFERENCE

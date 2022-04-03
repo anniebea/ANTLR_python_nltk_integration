@@ -2,13 +2,23 @@ import Pam_v2_gen_py3.Pam_v2Visitor
 from Pam_v2_gen_py3.Pam_v2Parser import Pam_v2Parser
 
 class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
+    varList = {}
+
     def visitAssign_stmt(self, ctx: Pam_v2Parser.Assign_stmtContext):
         # print("ASSIGN - Children: " + str(ctx.getChildCount()))
         # print("Child 1: " + str(ctx.getChild(0)))
         # print("Child 2: " + str(ctx.getChild(1)))
         # print("Child 3: " + str(ctx.getChild(2)))
 
-        return self.visitExpr(ctx.getChild(2))
+        if ctx.expr() is not None:
+            value = self.visitExpr(ctx.getChild(2))
+        elif ctx.log_expr() is not None:
+            value = self.visitLog_expr(ctx.getChild(2))
+        else:
+            return None
+
+        CustomVisitor.varList[str(ctx.getChild(0))] = value
+        return CustomVisitor.varList
 
     def visitExpr(self, ctx: Pam_v2Parser.ExprContext):
         # print("ExprChildren: " + str(ctx.getChildCount()))
@@ -16,9 +26,9 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
         # print("--2EXPR: " + str(ctx.getChild(1)))
         # print("--3EXPR: " + str(ctx.getChild(2)))
 
-        if str(ctx.getChildCount()) == "1":     # 'NUMBER | VARNAME | BOOL
+        if str(ctx.getChildCount()) == "1":
             return str(self.visitTerm(ctx.getChild(0)))
-        else:                                   # term (WEAKOP term)*;
+        else:
             if str(ctx.getChild(1)) == "+":
                 childVal0 = str(self.visitTerm(ctx.getChild(0)))
                 childVal2 = str(self.visitTerm(ctx.getChild(2)))
@@ -34,9 +44,9 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
         # print("----2TERM: " + str(ctx.getChild(1)))
         # print("----3TERM: " + str(ctx.getChild(2)))
 
-        if str(ctx.getChildCount()) == "1":     # 'NUMBER | VARNAME | BOOL
+        if str(ctx.getChildCount()) == "1":
             return str(self.visitElem(ctx.getChild(0)))
-        else:                                   # elem (STRONGOP elem)*;
+        else:
             if str(ctx.getChild(1)) == "*":
                 childVal0 = self.visitElem(ctx.getChild(0))
                 childVal2 = self.visitElem(ctx.getChild(2))
@@ -52,8 +62,39 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
         # print("----2ELEM: " + str(ctx.getChild(1)))
         # print("----3ELEM: " + str(ctx.getChild(2)))
 
-        if str(ctx.getChildCount()) == "1":     # 'NUMBER | VARNAME | BOOL
+        if str(ctx.getChildCount()) == "1":     # NUMBER | VARNAME | BOOL
             return str(ctx.getChild(0))
         else:                                   # LPARENTHESIS expr RPARENTHESIS
             # print("whyyyyyyyy")
             return self.visitExpr(ctx.getChild(1))
+
+    def visitLog_expr(self, ctx: Pam_v2Parser.Log_exprContext):
+        if str(ctx.getChildCount()) == "1":
+            return str(self.visitLog_term(ctx.getChild(0)))
+        else:
+            childVal0 = False
+            childVal2 = False
+            if str(self.visitLog_elem(ctx.getChild(0))) == "True":
+                childVal0 = True
+            if str(self.visitLog_elem(ctx.getChild(2))) == "True":
+                childVal2 = True
+            print(str(childVal0) + " or " + str(childVal2))
+            return childVal0 or childVal2
+
+    def visitLog_term(self, ctx: Pam_v2Parser.Log_termContext):
+        if str(ctx.getChildCount()) == "1":
+            return str(self.visitLog_elem(ctx.getChild(0)))
+        else:
+            childVal0 = False
+            childVal2 = False
+            if str(self.visitLog_elem(ctx.getChild(0))) == "True":
+                childVal0 = True
+            if str(self.visitLog_elem(ctx.getChild(2))) == "True":
+                childVal2 = True
+            return childVal0 and childVal2
+
+    def visitLog_elem(self, ctx: Pam_v2Parser.Log_elemContext):
+        if str(ctx.getChildCount()) == "1":     # condition | BOOL | NOT BOOL
+            return str(ctx.getChild(0))
+        else:                                   # LPARENTHESIS log_expr RPARENTHESIS
+            return self.visitLog_expr(ctx.getChild(1))

@@ -12,7 +12,7 @@ Pamata struktūras
 
 series              :       stmt (SEMICOLON stmt)*;
 stmt                :       assign_stmt | input_stmt | output_stmt | cond_stmt | loop;
-assign_stmt         :       VARNAME ':=' expr;
+assign_stmt         :       VARNAME ':=' ( expr | log_expr);
 
 /*
 Read un Write struktūras
@@ -35,13 +35,13 @@ Loģiskās saites: "and" "or", konjunkcija saista ciešāk par disjunkciju
 
 log_expr            :       log_term (DISCJUNCTION log_term)*;
 log_term            :       log_elem (CONJUNCTION log_elem)*;
-log_elem            :       condition | BOOL | NOT BOOL | LPARENTHESIS log_expr RPARENTHESIS;
+log_elem            :       BOOL | NOT BOOL | condition | LPARENTHESIS log_expr RPARENTHESIS;
 
 /**
 Negācijas nodrošinājums
 */
 
-condition           :       pos_condition | neg_condition;
+condition           :       BOOL | neg_condition | pos_condition;
 neg_condition       :       NOT pos_condition;
 pos_condition       :       expr RELATION expr;
 
@@ -51,17 +51,17 @@ Pamata matemātiskās darbības: "+"  "-"  "*"  "/"
 
 expr		        :	    term (WEAKOP term)*;
 term		        :	    elem (STRONGOP elem)*;
-elem		        :	    NUMBER | VARNAME | LPARENTHESIS expr RPARENTHESIS | BOOL;
+elem		        :	    NUMBER | VARNAME | LPARENTHESIS expr RPARENTHESIS;
 
 /**
 Variables
 */
 
-NEWLINE	            :	    '\r' ? '\n';
+//NEWLINE	            :	    '\r' ? '\n';
 WEAKOP		        :	    '+' | '-';
 STRONGOP	        :	    '*' | '/';
 RELATION	        :	    '<>' | '=<' | '>='| '=' | '<' | '>';
-BOOL                :       'true' | 'false';
+BOOL                :       'True' | 'False';
 CONJUNCTION         :       'and';
 DISCJUNCTION        :       'or';
 NOT                 :       'not';
