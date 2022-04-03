@@ -8,8 +8,8 @@ def processProgr(argv, mode):
 
 
 def main(argv):
-    # printGrammarTree(argv)
-    processProgr(argv, "node")
+    printGrammarTree(argv)
+    # processProgr(argv, "node")
 
 if __name__ == "__main__":
     main(sys.argv)
