@@ -128,3 +128,12 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
             else:
                 result = True
         return result
+
+    def visitCond_stmt(self, ctx:Pam_v2Parser.Cond_stmtContext):    # IF STATEMENT
+        ifCond = str(self.visitLog_expr(ctx.getChild(1)))
+        if ifCond == "True":
+            return self.visitSeries(ctx.getChild(3))
+        elif str(ctx.getChildCount()) == "5":     # No "else" statement
+            return
+        elif str(ctx.getChildCount()) == "7":   # has "else" statement
+            return self.visitSeries(ctx.getChild(5))
