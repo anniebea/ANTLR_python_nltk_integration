@@ -12,7 +12,7 @@ Pamata struktūras
 
 series              :       stmt (SEMICOLON stmt)*;
 stmt                :       assign_stmt | input_stmt | output_stmt | cond_stmt | loop;
-assign_stmt         :       VARNAME ':=' ( expr | log_expr);
+assign_stmt         :       VARNAME ':=' ( log_expr | expr);
 
 /*
 Read un Write struktūras
@@ -35,13 +35,13 @@ Loģiskās saites: "and" "or", konjunkcija saista ciešāk par disjunkciju
 
 log_expr            :       log_term (DISCJUNCTION log_term)*;
 log_term            :       log_elem (CONJUNCTION log_elem)*;
-log_elem            :       (NOT)? ( BOOL | condition | LPARENTHESIS log_expr RPARENTHESIS );
+log_elem            :       (NOT)? ( BOOL | condition | LPARENTHESIS log_expr RPARENTHESIS | elem );
 
 /**
 Negācijas nodrošinājums
 */
 
-condition           :       BOOL | neg_condition | pos_condition;
+condition           :       neg_condition | pos_condition;
 neg_condition       :       NOT pos_condition;
 pos_condition       :       expr RELATION expr;
 

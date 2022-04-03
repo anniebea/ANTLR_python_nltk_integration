@@ -2,4 +2,6 @@ x := 3 + 4 * (10 / 5);
 y := 13 + 5;
 z := True and False;
 w := True and (False or True);
-v := not True
+v := not True;
+y := y + 5;
+v := z and True

@@ -11,10 +11,10 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
         # print("Child 2: " + str(ctx.getChild(1)))
         # print("Child 3: " + str(ctx.getChild(2)))
 
-        if ctx.expr() is not None:
-            value = self.visitExpr(ctx.getChild(2))
-        elif ctx.log_expr() is not None:
+        if ctx.log_expr() is not None:
             value = self.visitLog_expr(ctx.getChild(2))
+        elif ctx.expr() is not None:
+            value = self.visitExpr(ctx.getChild(2))
         else:
             return None
 
@@ -33,10 +33,22 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
             if str(ctx.getChild(1)) == "+":
                 childVal0 = str(self.visitTerm(ctx.getChild(0)))
                 childVal2 = str(self.visitTerm(ctx.getChild(2)))
+
+                if childVal0 in CustomVisitor.varList:
+                    childVal0 = CustomVisitor.varList[childVal0]
+                if childVal0 in CustomVisitor.varList:
+                    childVal2 = CustomVisitor.varList[childVal2]
+
                 return float(childVal0) + float(childVal2)
             else:
                 childVal0 = str(self.visitTerm(ctx.getChild(0)))
                 childVal2 = str(self.visitTerm(ctx.getChild(2)))
+
+                if childVal0 in CustomVisitor.varList:
+                    childVal0 = CustomVisitor.varList[childVal0]
+                if childVal0 in CustomVisitor.varList:
+                    childVal2 = CustomVisitor.varList[childVal2]
+
                 return float(childVal0) - float(childVal2)
 
     def visitTerm(self, ctx: Pam_v2Parser.TermContext):
@@ -51,10 +63,22 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
             if str(ctx.getChild(1)) == "*":
                 childVal0 = self.visitElem(ctx.getChild(0))
                 childVal2 = self.visitElem(ctx.getChild(2))
+
+                if childVal0 in CustomVisitor.varList:
+                    childVal0 = CustomVisitor.varList[childVal0]
+                if childVal0 in CustomVisitor.varList:
+                    childVal2 = CustomVisitor.varList[childVal2]
+
                 return float(str(childVal0)) * float(str(childVal2))
             else:
                 childVal0 = self.visitElem(ctx.getChild(0))
                 childVal2 = self.visitElem(ctx.getChild(2))
+
+                if childVal0 in CustomVisitor.varList:
+                    childVal0 = CustomVisitor.varList[childVal0]
+                if childVal0 in CustomVisitor.varList:
+                    childVal2 = CustomVisitor.varList[childVal2]
+
                 return float(str(childVal0)) / float(str(childVal2))
 
     def visitElem(self, ctx: Pam_v2Parser.ElemContext):
@@ -79,37 +103,67 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
         else:
             childVal0 = False
             childVal2 = False
-            if str(self.visitLog_term(ctx.getChild(0))) == "True":
+
+            if str(self.visitLog_term(ctx.getChild(0))) in CustomVisitor.varList:
+                childVal0 = str(CustomVisitor.varList[childVal0])
+                if childVal0 == "True":
+                    childVal0 = True
+                else:
+                    childVal0 = False
+            elif str(self.visitLog_term(ctx.getChild(0))) == "True":
                 childVal0 = True
-            if str(self.visitLog_term(ctx.getChild(2))) == "True":
+
+            if str(self.visitLog_term(ctx.getChild(2))) in CustomVisitor.varList:
+                childVal2 = str(CustomVisitor.varList[childVal2])
+                if childVal2 == "True":
+                    childVal2 = True
+                else:
+                    childVal2 = False
+            elif str(self.visitLog_term(ctx.getChild(2))) == "True":
                 childVal2 = True
-            # print(str(childVal0) + " or " + str(childVal2))
+
+            # print(str(childVal0) + " and " + str(childVal2))
             return childVal0 or childVal2
 
     def visitLog_term(self, ctx: Pam_v2Parser.Log_termContext):
         # print("LogTermChildren: " + str(ctx.getChildCount()))
-        # print("----1TERM: " + str(ctx.getChild(0)))
-        # print("----2TERM: " + str(ctx.getChild(1)))
-        # print("----3TERM: " + str(ctx.getChild(2)))
+        # print("----1TERM: " + str(self.visitLog_elem(ctx.getChild(0))))
+        # print("----2TERM: " + str(self.visitLog_elem(ctx.getChild(1))))
+        # print("----3TERM: " + str(self.visitLog_elem(ctx.getChild(2))))
         if str(ctx.getChildCount()) == "1":
             return str(self.visitLog_elem(ctx.getChild(0)))
         else:
             childVal0 = False
             childVal2 = False
-            if str(self.visitLog_elem(ctx.getChild(0))) == "True":
+
+            if str(self.visitLog_elem(ctx.getChild(0))) in CustomVisitor.varList:
+                childVal0 = str(CustomVisitor.varList[childVal0])
+                if childVal0 == "True":
+                    childVal0 = True
+                else:
+                    childVal0 = False
+            elif str(self.visitLog_elem(ctx.getChild(0))) == "True":
                 childVal0 = True
-            if str(self.visitLog_elem(ctx.getChild(2))) == "True":
+
+            if str(self.visitLog_elem(ctx.getChild(2))) in CustomVisitor.varList:
+                childVal2 = str(CustomVisitor.varList[childVal2])
+                if childVal2 == "True":
+                    childVal2 = True
+                else:
+                    childVal2 = False
+            elif str(self.visitLog_elem(ctx.getChild(2))) == "True":
                 childVal2 = True
+
             # print(str(childVal0) + " and " + str(childVal2))
             return childVal0 and childVal2
 
     def visitLog_elem(self, ctx: Pam_v2Parser.Log_elemContext):
         # print("LogElemChildren: " + str(ctx.getChildCount()))
-        # print("----1ELEM: " + str(ctx.getChild(0)))
-        # print("----2ELEM: " + str(ctx.getChild(1)))
-        # print("----3ELEM: " + str(ctx.getChild(2)))
-        # print("----4ELEM: " + str(ctx.getChild(3)))
-        result = True
+        # print("----1ELEM: " + str(self.visitLog_expr(ctx.getChild(0))))
+        # print("----2ELEM: " + str(self.visitLog_expr(ctx.getChild(1))))
+        # print("----3ELEM: " + str(self.visitLog_expr(ctx.getChild(2))))
+        # print("----4ELEM: " + str(self.visitLog_expr(ctx.getChild(3))))
+        result = None
         if str(ctx.getChildCount()) == "1":     # BOOL | condition
             if str(ctx.getChild(0)) == "True":
                 result = True
@@ -137,3 +191,6 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
             return
         elif str(ctx.getChildCount()) == "7":   # has "else" statement
             return self.visitSeries(ctx.getChild(5))
+
+    def visitPos_condition(self, ctx:Pam_v2Parser.Pos_conditionContext):
+        return self.visitChildren(ctx)
