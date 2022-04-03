@@ -1,6 +1,7 @@
 import Pam_v2_gen_py3.Pam_v2Visitor
 from Pam_v2_gen_py3.Pam_v2Parser import Pam_v2Parser
 
+
 class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
     varList = {}
 
@@ -107,10 +108,23 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
         # print("----1ELEM: " + str(ctx.getChild(0)))
         # print("----2ELEM: " + str(ctx.getChild(1)))
         # print("----3ELEM: " + str(ctx.getChild(2)))
-        if str(ctx.getChildCount()) == "1":     # BOOL | NOT BOOL | condition
+        # print("----4ELEM: " + str(ctx.getChild(3)))
+        result = True
+        if str(ctx.getChildCount()) == "1":     # BOOL | condition
             if str(ctx.getChild(0)) == "True":
-                return True
+                result = True
             else:
-                return False
-        else:                                   # LPARENTHESIS log_expr RPARENTHESIS
-            return self.visitLog_expr(ctx.getChild(1))
+                result = False
+        elif str(ctx.getChildCount()) == "2":   # NOT BOOL
+            if str(ctx.getChild(1)) == "True":
+                result = False
+            else:
+                result = True
+        elif str(ctx.getChildCount()) == "3":   # LPARENTHESIS log_expr RPARENTHESIS
+            result = self.visitLog_expr(ctx.getChild(1))
+        elif str(ctx.getChildCount()) == "4":   # NOT LPARENTHESIS log_expr RPARENTHESIS
+            if str(self.visitLog_expr(ctx.getChild(2))) == "True":
+                result = False
+            else:
+                result = True
+        return result

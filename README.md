@@ -54,7 +54,7 @@ Jaunas gramatikas uzstādīšanas soļi:
 
 Piemēri izvadītiem koka izvedumiem:
 ![img_2.png](img_2.png)
-![img_5.png](img_5.png)
+![img_6.png](img_6.png)
 *********
 
 # ANTLR 4 REFERENCE

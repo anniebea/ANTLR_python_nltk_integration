@@ -12,7 +12,7 @@ else:
 def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32")
-        buf.write("\u009a\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\u009b\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\3\2\3\2\3\3\3\3\3\3\7\3,\n\3\f\3\16\3/\13\3\3\4\3\4\3")
@@ -20,26 +20,26 @@ def serializedATN():
         buf.write("\3\6\3\7\3\7\3\7\3\b\3\b\3\b\7\bG\n\b\f\b\16\bJ\13\b\3")
         buf.write("\t\3\t\3\t\3\t\3\t\3\t\5\tR\n\t\3\t\3\t\3\n\3\n\3\n\3")
         buf.write("\n\3\n\3\n\3\13\3\13\3\13\7\13_\n\13\f\13\16\13b\13\13")
-        buf.write("\3\f\3\f\3\f\7\fg\n\f\f\f\16\fj\13\f\3\r\3\r\3\r\3\r\3")
-        buf.write("\r\3\r\3\r\3\r\5\rt\n\r\3\16\3\16\3\16\5\16y\n\16\3\17")
-        buf.write("\3\17\3\17\3\20\3\20\3\20\3\20\3\21\3\21\3\21\7\21\u0085")
-        buf.write("\n\21\f\21\16\21\u0088\13\21\3\22\3\22\3\22\7\22\u008d")
-        buf.write("\n\22\f\22\16\22\u0090\13\22\3\23\3\23\3\23\3\23\3\23")
-        buf.write("\3\23\5\23\u0098\n\23\3\23\2\2\24\2\4\6\b\n\f\16\20\22")
-        buf.write("\24\26\30\32\34\36 \"$\2\2\2\u009a\2&\3\2\2\2\4(\3\2\2")
-        buf.write("\2\6\65\3\2\2\2\b\67\3\2\2\2\n=\3\2\2\2\f@\3\2\2\2\16")
-        buf.write("C\3\2\2\2\20K\3\2\2\2\22U\3\2\2\2\24[\3\2\2\2\26c\3\2")
-        buf.write("\2\2\30s\3\2\2\2\32x\3\2\2\2\34z\3\2\2\2\36}\3\2\2\2 ")
-        buf.write("\u0081\3\2\2\2\"\u0089\3\2\2\2$\u0097\3\2\2\2&\'\5\4\3")
-        buf.write("\2\'\3\3\2\2\2(-\5\6\4\2)*\7\25\2\2*,\5\6\4\2+)\3\2\2")
-        buf.write("\2,/\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\5\3\2\2\2/-\3\2\2\2")
-        buf.write("\60\66\5\b\5\2\61\66\5\n\6\2\62\66\5\f\7\2\63\66\5\20")
-        buf.write("\t\2\64\66\5\22\n\2\65\60\3\2\2\2\65\61\3\2\2\2\65\62")
-        buf.write("\3\2\2\2\65\63\3\2\2\2\65\64\3\2\2\2\66\7\3\2\2\2\678")
-        buf.write("\7\31\2\28;\7\3\2\29<\5 \21\2:<\5\24\13\2;9\3\2\2\2;:")
-        buf.write("\3\2\2\2<\t\3\2\2\2=>\7\4\2\2>?\5\16\b\2?\13\3\2\2\2@")
-        buf.write("A\7\5\2\2AB\5\16\b\2B\r\3\2\2\2CH\7\31\2\2DE\7\6\2\2E")
-        buf.write("G\7\31\2\2FD\3\2\2\2GJ\3\2\2\2HF\3\2\2\2HI\3\2\2\2I\17")
+        buf.write("\3\f\3\f\3\f\7\fg\n\f\f\f\16\fj\13\f\3\r\5\rm\n\r\3\r")
+        buf.write("\3\r\3\r\3\r\3\r\3\r\5\ru\n\r\3\16\3\16\3\16\5\16z\n\16")
+        buf.write("\3\17\3\17\3\17\3\20\3\20\3\20\3\20\3\21\3\21\3\21\7\21")
+        buf.write("\u0086\n\21\f\21\16\21\u0089\13\21\3\22\3\22\3\22\7\22")
+        buf.write("\u008e\n\22\f\22\16\22\u0091\13\22\3\23\3\23\3\23\3\23")
+        buf.write("\3\23\3\23\5\23\u0099\n\23\3\23\2\2\24\2\4\6\b\n\f\16")
+        buf.write("\20\22\24\26\30\32\34\36 \"$\2\2\2\u009b\2&\3\2\2\2\4")
+        buf.write("(\3\2\2\2\6\65\3\2\2\2\b\67\3\2\2\2\n=\3\2\2\2\f@\3\2")
+        buf.write("\2\2\16C\3\2\2\2\20K\3\2\2\2\22U\3\2\2\2\24[\3\2\2\2\26")
+        buf.write("c\3\2\2\2\30l\3\2\2\2\32y\3\2\2\2\34{\3\2\2\2\36~\3\2")
+        buf.write("\2\2 \u0082\3\2\2\2\"\u008a\3\2\2\2$\u0098\3\2\2\2&\'")
+        buf.write("\5\4\3\2\'\3\3\2\2\2(-\5\6\4\2)*\7\25\2\2*,\5\6\4\2+)")
+        buf.write("\3\2\2\2,/\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\5\3\2\2\2/-\3")
+        buf.write("\2\2\2\60\66\5\b\5\2\61\66\5\n\6\2\62\66\5\f\7\2\63\66")
+        buf.write("\5\20\t\2\64\66\5\22\n\2\65\60\3\2\2\2\65\61\3\2\2\2\65")
+        buf.write("\62\3\2\2\2\65\63\3\2\2\2\65\64\3\2\2\2\66\7\3\2\2\2\67")
+        buf.write("8\7\31\2\28;\7\3\2\29<\5 \21\2:<\5\24\13\2;9\3\2\2\2;")
+        buf.write(":\3\2\2\2<\t\3\2\2\2=>\7\4\2\2>?\5\16\b\2?\13\3\2\2\2")
+        buf.write("@A\7\5\2\2AB\5\16\b\2B\r\3\2\2\2CH\7\31\2\2DE\7\6\2\2")
+        buf.write("EG\7\31\2\2FD\3\2\2\2GJ\3\2\2\2HF\3\2\2\2HI\3\2\2\2I\17")
         buf.write("\3\2\2\2JH\3\2\2\2KL\7\7\2\2LM\5\24\13\2MN\7\b\2\2NQ\5")
         buf.write("\4\3\2OP\7\t\2\2PR\5\4\3\2QO\3\2\2\2QR\3\2\2\2RS\3\2\2")
         buf.write("\2ST\7\n\2\2T\21\3\2\2\2UV\7\13\2\2VW\5\24\13\2WX\7\f")
@@ -47,23 +47,24 @@ def serializedATN():
         buf.write("\2\2]_\5\26\f\2^\\\3\2\2\2_b\3\2\2\2`^\3\2\2\2`a\3\2\2")
         buf.write("\2a\25\3\2\2\2b`\3\2\2\2ch\5\30\r\2de\7\22\2\2eg\5\30")
         buf.write("\r\2fd\3\2\2\2gj\3\2\2\2hf\3\2\2\2hi\3\2\2\2i\27\3\2\2")
-        buf.write("\2jh\3\2\2\2kt\7\21\2\2lm\7\24\2\2mt\7\21\2\2nt\5\32\16")
-        buf.write("\2op\7\26\2\2pq\5\24\13\2qr\7\27\2\2rt\3\2\2\2sk\3\2\2")
-        buf.write("\2sl\3\2\2\2sn\3\2\2\2so\3\2\2\2t\31\3\2\2\2uy\7\21\2")
-        buf.write("\2vy\5\34\17\2wy\5\36\20\2xu\3\2\2\2xv\3\2\2\2xw\3\2\2")
-        buf.write("\2y\33\3\2\2\2z{\7\24\2\2{|\5\36\20\2|\35\3\2\2\2}~\5")
-        buf.write(" \21\2~\177\7\20\2\2\177\u0080\5 \21\2\u0080\37\3\2\2")
-        buf.write("\2\u0081\u0086\5\"\22\2\u0082\u0083\7\16\2\2\u0083\u0085")
-        buf.write("\5\"\22\2\u0084\u0082\3\2\2\2\u0085\u0088\3\2\2\2\u0086")
-        buf.write("\u0084\3\2\2\2\u0086\u0087\3\2\2\2\u0087!\3\2\2\2\u0088")
-        buf.write("\u0086\3\2\2\2\u0089\u008e\5$\23\2\u008a\u008b\7\17\2")
-        buf.write("\2\u008b\u008d\5$\23\2\u008c\u008a\3\2\2\2\u008d\u0090")
-        buf.write("\3\2\2\2\u008e\u008c\3\2\2\2\u008e\u008f\3\2\2\2\u008f")
-        buf.write("#\3\2\2\2\u0090\u008e\3\2\2\2\u0091\u0098\7\30\2\2\u0092")
-        buf.write("\u0098\7\31\2\2\u0093\u0094\7\26\2\2\u0094\u0095\5 \21")
-        buf.write("\2\u0095\u0096\7\27\2\2\u0096\u0098\3\2\2\2\u0097\u0091")
-        buf.write("\3\2\2\2\u0097\u0092\3\2\2\2\u0097\u0093\3\2\2\2\u0098")
-        buf.write("%\3\2\2\2\16-\65;HQ`hsx\u0086\u008e\u0097")
+        buf.write("\2jh\3\2\2\2km\7\24\2\2lk\3\2\2\2lm\3\2\2\2mt\3\2\2\2")
+        buf.write("nu\7\21\2\2ou\5\32\16\2pq\7\26\2\2qr\5\24\13\2rs\7\27")
+        buf.write("\2\2su\3\2\2\2tn\3\2\2\2to\3\2\2\2tp\3\2\2\2u\31\3\2\2")
+        buf.write("\2vz\7\21\2\2wz\5\34\17\2xz\5\36\20\2yv\3\2\2\2yw\3\2")
+        buf.write("\2\2yx\3\2\2\2z\33\3\2\2\2{|\7\24\2\2|}\5\36\20\2}\35")
+        buf.write("\3\2\2\2~\177\5 \21\2\177\u0080\7\20\2\2\u0080\u0081\5")
+        buf.write(" \21\2\u0081\37\3\2\2\2\u0082\u0087\5\"\22\2\u0083\u0084")
+        buf.write("\7\16\2\2\u0084\u0086\5\"\22\2\u0085\u0083\3\2\2\2\u0086")
+        buf.write("\u0089\3\2\2\2\u0087\u0085\3\2\2\2\u0087\u0088\3\2\2\2")
+        buf.write("\u0088!\3\2\2\2\u0089\u0087\3\2\2\2\u008a\u008f\5$\23")
+        buf.write("\2\u008b\u008c\7\17\2\2\u008c\u008e\5$\23\2\u008d\u008b")
+        buf.write("\3\2\2\2\u008e\u0091\3\2\2\2\u008f\u008d\3\2\2\2\u008f")
+        buf.write("\u0090\3\2\2\2\u0090#\3\2\2\2\u0091\u008f\3\2\2\2\u0092")
+        buf.write("\u0099\7\30\2\2\u0093\u0099\7\31\2\2\u0094\u0095\7\26")
+        buf.write("\2\2\u0095\u0096\5 \21\2\u0096\u0097\7\27\2\2\u0097\u0099")
+        buf.write("\3\2\2\2\u0098\u0092\3\2\2\2\u0098\u0093\3\2\2\2\u0098")
+        buf.write("\u0094\3\2\2\2\u0099%\3\2\2\2\17-\65;HQ`hlty\u0087\u008f")
+        buf.write("\u0098")
         return buf.getvalue()
 
 
@@ -876,9 +877,6 @@ class Pam_v2Parser ( Parser ):
         def BOOL(self):
             return self.getToken(Pam_v2Parser.BOOL, 0)
 
-        def NOT(self):
-            return self.getToken(Pam_v2Parser.NOT, 0)
-
         def condition(self):
             return self.getTypedRuleContext(Pam_v2Parser.ConditionContext,0)
 
@@ -892,6 +890,9 @@ class Pam_v2Parser ( Parser ):
 
         def RPARENTHESIS(self):
             return self.getToken(Pam_v2Parser.RPARENTHESIS, 0)
+
+        def NOT(self):
+            return self.getToken(Pam_v2Parser.NOT, 0)
 
         def getRuleIndex(self):
             return Pam_v2Parser.RULE_log_elem
@@ -918,36 +919,34 @@ class Pam_v2Parser ( Parser ):
         localctx = Pam_v2Parser.Log_elemContext(self, self._ctx, self.state)
         self.enterRule(localctx, 22, self.RULE_log_elem)
         try:
-            self.state = 113
+            self.enterOuterAlt(localctx, 1)
+            self.state = 106
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
-                self.enterOuterAlt(localctx, 1)
                 self.state = 105
+                self.match(Pam_v2Parser.NOT)
+
+
+            self.state = 114
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
+            if la_ == 1:
+                self.state = 108
                 self.match(Pam_v2Parser.BOOL)
                 pass
 
             elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 106
-                self.match(Pam_v2Parser.NOT)
-                self.state = 107
-                self.match(Pam_v2Parser.BOOL)
-                pass
-
-            elif la_ == 3:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 108
+                self.state = 109
                 self.condition()
                 pass
 
-            elif la_ == 4:
-                self.enterOuterAlt(localctx, 4)
-                self.state = 109
-                self.match(Pam_v2Parser.LPARENTHESIS)
+            elif la_ == 3:
                 self.state = 110
-                self.log_expr()
+                self.match(Pam_v2Parser.LPARENTHESIS)
                 self.state = 111
+                self.log_expr()
+                self.state = 112
                 self.match(Pam_v2Parser.RPARENTHESIS)
                 pass
 
@@ -1004,22 +1003,22 @@ class Pam_v2Parser ( Parser ):
         localctx = Pam_v2Parser.ConditionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 24, self.RULE_condition)
         try:
-            self.state = 118
+            self.state = 119
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [Pam_v2Parser.BOOL]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 115
+                self.state = 116
                 self.match(Pam_v2Parser.BOOL)
                 pass
             elif token in [Pam_v2Parser.NOT]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 116
+                self.state = 117
                 self.neg_condition()
                 pass
             elif token in [Pam_v2Parser.LPARENTHESIS, Pam_v2Parser.NUMBER, Pam_v2Parser.VARNAME]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 117
+                self.state = 118
                 self.pos_condition()
                 pass
             else:
@@ -1074,9 +1073,9 @@ class Pam_v2Parser ( Parser ):
         self.enterRule(localctx, 26, self.RULE_neg_condition)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 120
-            self.match(Pam_v2Parser.NOT)
             self.state = 121
+            self.match(Pam_v2Parser.NOT)
+            self.state = 122
             self.pos_condition()
         except RecognitionException as re:
             localctx.exception = re
@@ -1130,11 +1129,11 @@ class Pam_v2Parser ( Parser ):
         self.enterRule(localctx, 28, self.RULE_pos_condition)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 123
-            self.expr()
             self.state = 124
-            self.match(Pam_v2Parser.RELATION)
+            self.expr()
             self.state = 125
+            self.match(Pam_v2Parser.RELATION)
+            self.state = 126
             self.expr()
         except RecognitionException as re:
             localctx.exception = re
@@ -1192,17 +1191,17 @@ class Pam_v2Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 127
+            self.state = 128
             self.term()
-            self.state = 132
+            self.state = 133
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==Pam_v2Parser.WEAKOP:
-                self.state = 128
-                self.match(Pam_v2Parser.WEAKOP)
                 self.state = 129
+                self.match(Pam_v2Parser.WEAKOP)
+                self.state = 130
                 self.term()
-                self.state = 134
+                self.state = 135
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1262,17 +1261,17 @@ class Pam_v2Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 135
+            self.state = 136
             self.elem()
-            self.state = 140
+            self.state = 141
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==Pam_v2Parser.STRONGOP:
-                self.state = 136
-                self.match(Pam_v2Parser.STRONGOP)
                 self.state = 137
+                self.match(Pam_v2Parser.STRONGOP)
+                self.state = 138
                 self.elem()
-                self.state = 142
+                self.state = 143
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1333,26 +1332,26 @@ class Pam_v2Parser ( Parser ):
         localctx = Pam_v2Parser.ElemContext(self, self._ctx, self.state)
         self.enterRule(localctx, 34, self.RULE_elem)
         try:
-            self.state = 149
+            self.state = 150
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [Pam_v2Parser.NUMBER]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 143
+                self.state = 144
                 self.match(Pam_v2Parser.NUMBER)
                 pass
             elif token in [Pam_v2Parser.VARNAME]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 144
+                self.state = 145
                 self.match(Pam_v2Parser.VARNAME)
                 pass
             elif token in [Pam_v2Parser.LPARENTHESIS]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 145
-                self.match(Pam_v2Parser.LPARENTHESIS)
                 self.state = 146
-                self.expr()
+                self.match(Pam_v2Parser.LPARENTHESIS)
                 self.state = 147
+                self.expr()
+                self.state = 148
                 self.match(Pam_v2Parser.RPARENTHESIS)
                 pass
             else:

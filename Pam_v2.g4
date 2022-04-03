@@ -35,7 +35,7 @@ Loģiskās saites: "and" "or", konjunkcija saista ciešāk par disjunkciju
 
 log_expr            :       log_term (DISCJUNCTION log_term)*;
 log_term            :       log_elem (CONJUNCTION log_elem)*;
-log_elem            :       BOOL | NOT BOOL | condition | LPARENTHESIS log_expr RPARENTHESIS;
+log_elem            :       (NOT)? ( BOOL | condition | LPARENTHESIS log_expr RPARENTHESIS );
 
 /**
 Negācijas nodrošinājums
