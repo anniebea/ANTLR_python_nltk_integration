@@ -56,6 +56,7 @@ Piemēri izvadītiem koka izvedumiem:
 ![img_2.png](img_2.png)
 ![img_6.png](img_6.png)
 ![img_7.png](img_7.png)
+![img_8.png](img_8.png)
 *********
 
 # ANTLR 4 REFERENCE

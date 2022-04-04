@@ -38,7 +38,7 @@ log_term            :       log_elem (CONJUNCTION log_elem)*;
 log_elem            :       (NOT)? ( condition | BOOL | LPARENTHESIS log_expr RPARENTHESIS | VARNAME );
 
 /**
-Negācijas nodrošinājums
+Condition type
 */
 
 condition           :       expr RELATION expr;

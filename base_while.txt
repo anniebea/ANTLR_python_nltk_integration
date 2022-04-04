@@ -1,0 +1,4 @@
+x := 10;
+while x < 97 do
+    x := x + 5
+end

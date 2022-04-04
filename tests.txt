@@ -1,10 +1,15 @@
-while True do
+x := True;
+y := True;
+z := 6;
+c := 1;
+
+while c < 10 do
+    c := c + 1;
     if x=True and not y=False then z:=1*2+3*4/5-1
     else y:=False fi;
-    if x=False then y:=8
-    else x:=False fi;
-    if x<2 then
-        if x<2 then c:=7
+
+    if z>600 then
+        if z<900 then c:=7
         else x:=True fi
     else x:=True fi
 end

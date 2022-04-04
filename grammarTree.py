@@ -33,7 +33,6 @@ def prepTree(argv, returnVal):
     # Visitor rules
     visitor = customVisitor.CustomVisitor()
     result = visitor.visit(tree)
-    # print("!!!!!!!")
     print("RESULT: " + str(result))
 
     if returnVal == "treeString":

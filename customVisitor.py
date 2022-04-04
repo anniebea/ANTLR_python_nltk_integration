@@ -227,46 +227,60 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
         childVal1 = str(ctx.getChild(1))
 
         if str(self.visitExpr(ctx.getChild(0))) in CustomVisitor.varList:
-            childVal0 = float(CustomVisitor.varList[str(self.visitExpr(ctx.getChild(0)))])
+            childVal0 = CustomVisitor.varList[str(self.visitExpr(ctx.getChild(0)))]
         else:
-            childVal0 = float(str(self.visitExpr(ctx.getChild(0))))
+            childVal0 = str(self.visitExpr(ctx.getChild(0)))
 
         if str(self.visitExpr(ctx.getChild(2))) in CustomVisitor.varList:
-            childVal2 = float(CustomVisitor.varList[str(self.visitExpr(ctx.getChild(2)))])
+            childVal2 = CustomVisitor.varList[str(self.visitExpr(ctx.getChild(2)))]
         else:
-            childVal2 = float(str(self.visitExpr(ctx.getChild(2))))
+            childVal2 = str(self.visitExpr(ctx.getChild(2)))
 
-        print("RELATION: " + str(childVal0) + str(childVal1) + str(childVal2))
+        # print("RELATION: " + str(childVal0) + str(childVal1) + str(childVal2))
 
         if childVal1 == "<>":
-            if childVal0 != childVal2:
+            if str(childVal0) != str(childVal2):
                 return True
             else:
                 return False
         elif childVal1 == '=<':
-            if childVal0 <= childVal2:
+            if float(str(childVal0)) <= float(str(childVal2)):
                 return True
             else:
                 return False
         elif childVal1 == '>=':
-            if childVal0 >= childVal2:
+            if float(str(childVal0)) >= float(str(childVal2)):
                 return True
             else:
                 return False
         elif childVal1 == '=':
-            if childVal0 == childVal2:
+            if str(childVal0) == str(childVal2):
                 return True
             else:
                 return False
         elif childVal1 == '<':
-            if childVal0 < childVal2:
+            if float(str(childVal0)) < float(str(childVal2)):
                 return True
             else:
                 return False
         elif childVal1 == '>':
-            if childVal0 > childVal2:
+            if float(str(childVal0)) > float(str(childVal2)):
                 return True
             else:
                 return False
         else:
             return None
+
+    def visitLoop(self, ctx: Pam_v2Parser.LoopContext):
+        # print("WhileChildren: " + str(ctx.getChildCount()))
+        # print("----1WHILE: " + str(ctx.getChild(0)))
+        # print("----2WHILE: " + str(self.visitLog_expr(ctx.getChild(1))))
+        # print("----3WHILE: " + str(ctx.getChild(2)))
+        # print("----4WHILE: " + str(self.visitSeries(ctx.getChild(3))))
+        # print("----5WHILE: " + str(ctx.getChild(4)))
+
+        while str(self.visitLog_expr(ctx.getChild(1))) == "True":
+            # print(CustomVisitor.varList)
+            self.visitSeries(ctx.getChild(3))
+
+        return CustomVisitor.varList
