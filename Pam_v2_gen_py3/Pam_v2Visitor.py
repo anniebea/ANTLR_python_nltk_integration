@@ -74,16 +74,6 @@ class Pam_v2Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by Pam_v2Parser#neg_condition.
-    def visitNeg_condition(self, ctx:Pam_v2Parser.Neg_conditionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by Pam_v2Parser#pos_condition.
-    def visitPos_condition(self, ctx:Pam_v2Parser.Pos_conditionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by Pam_v2Parser#expr.
     def visitExpr(self, ctx:Pam_v2Parser.ExprContext):
         return self.visitChildren(ctx)

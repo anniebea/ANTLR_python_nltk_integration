@@ -35,15 +35,13 @@ Loģiskās saites: "and" "or", konjunkcija saista ciešāk par disjunkciju
 
 log_expr            :       log_term (DISCJUNCTION log_term)*;
 log_term            :       log_elem (CONJUNCTION log_elem)*;
-log_elem            :       (NOT)? ( BOOL | condition | LPARENTHESIS log_expr RPARENTHESIS | elem );
+log_elem            :       (NOT)? ( condition | BOOL | LPARENTHESIS log_expr RPARENTHESIS | VARNAME );
 
 /**
 Negācijas nodrošinājums
 */
 
-condition           :       neg_condition | pos_condition;
-neg_condition       :       NOT pos_condition;
-pos_condition       :       expr RELATION expr;
+condition           :       expr RELATION expr;
 
 /**
 Pamata matemātiskās darbības: "+"  "-"  "*"  "/"

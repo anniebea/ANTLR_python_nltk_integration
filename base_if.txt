@@ -1,4 +1,4 @@
 if True then x := 12
 else x := 11 fi;
-if x>10 then y := False
+if not x>20 then y := False
 else y := True; z := False fi

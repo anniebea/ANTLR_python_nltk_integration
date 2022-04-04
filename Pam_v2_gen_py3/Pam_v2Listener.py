@@ -125,24 +125,6 @@ class Pam_v2Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by Pam_v2Parser#neg_condition.
-    def enterNeg_condition(self, ctx:Pam_v2Parser.Neg_conditionContext):
-        pass
-
-    # Exit a parse tree produced by Pam_v2Parser#neg_condition.
-    def exitNeg_condition(self, ctx:Pam_v2Parser.Neg_conditionContext):
-        pass
-
-
-    # Enter a parse tree produced by Pam_v2Parser#pos_condition.
-    def enterPos_condition(self, ctx:Pam_v2Parser.Pos_conditionContext):
-        pass
-
-    # Exit a parse tree produced by Pam_v2Parser#pos_condition.
-    def exitPos_condition(self, ctx:Pam_v2Parser.Pos_conditionContext):
-        pass
-
-
     # Enter a parse tree produced by Pam_v2Parser#expr.
     def enterExpr(self, ctx:Pam_v2Parser.ExprContext):
         pass
