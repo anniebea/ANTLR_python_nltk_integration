@@ -23,17 +23,29 @@ lai to varētu attēlot lietotājam vizuālā formātā.
 Nepieciešams nodrošināt ANTLR spraudni un šādas _Python_ pakotnes:
 * pip
 * nltk
-* antlr4-python3-runtime
+* antlr4-python3-runtime, versija **4.9.2** (**ne jaunāka!**)
 
-Lai uzsāktu programmu, komandrindā ar "cd" komandu jānavigē līdz šī projekta 
-datņu mapei (automātiska darbība, ja izmanto _PyCharm_ iebūvēto termināli) un jāievada komanda `python main.py tests.txt`, 
-kur "tests.txt" ir projekta datņu mapē ievietotās ievades datnes nosaukums (obligāti jāiekļauj ".txt"). 
+## Darbs komandrindā
+
+Lai uzsāktu programmu komandrindā, ar "cd" komandu jānavigē līdz šī projekta 
+datņu mapei (automātiska darbība, ja izmanto _PyCharm_ iebūvēto termināli) un 
+jāievada komanda `python main.py input.txt data.txt`, 
+kur abas datnes ir ievietotas projekta datņu mapē (obligāti jāiekļauj ".txt"). 
+
+## Darbs _PyCharm_ IDE
+
+Jānodrošina, ka ir pareizi konfigurēts _Python_ interpretators un jānospiež augšējā labajā stūrī esošā programmas palaišanas poga:
+
+![img_9.png](img_9.png)
+
+## Rezultāts
 
 Rezultātā programmas atmiņā tiks izveidots abstraktās sintakes koks, 
-kurš tiks izvadīts kā zīmējums izlecošā logā. 
+kurš tiks izvadīts kā zīmējums izlecošā logā, 
+un komandrindā tiks izvadīts programmas rezultāts, ja programma satur ```write``` komandu.
 
-Ja padotajā datnē ir kļūdas (ievades dati neatbilst **_Pam_v2_** gramatikai), 
-tiek izvadīts paziņojums konsolē, kurā uzsāk programmu.
+Ja padotajā datnē ievades dati neatbilst **_Pam_v2_** gramatikai, 
+tiek izvadīts paziņojums konsolē, kurā uzsāk programmu. 
 
 *********
 
@@ -52,16 +64,14 @@ Jaunas gramatikas uzstādīšanas soļi:
    1) pārmaina 4. un 5. rindu kodu, izmantojot jaunās gramatikas datnes;
    2) pārmaina 14. rindas kodu, ievietojot "progr" vietā uzsākšanas komandu no gramatikas definējuma datnes.
 
-Piemēri izvadītiem koka izvedumiem:
-![img_2.png](img_2.png)
+Piemērs izvadītiem koka izvedumiem:
 ![img_6.png](img_6.png)
-![img_7.png](img_7.png)
 ![img_8.png](img_8.png)
 *********
 
 # ANTLR 4 REFERENCE
 
 Interpretators izteiksmēm: sākot no 132.lpp (**7.4 Labeling Rule Alternatives for Precise Event Methods**)
-Reāli jālasa no 134.lpp (7.5), kur ir runa par visitors, bet 7.4 palīdz labāk saprast.  
+No 134.lpp (7.5), ir runa par visitors, bet 7.4 palīdz labāk saprast.  
 
 https://dl.icdst.org/pdfs/files3/a91ace57a8c4c8cdd9f1663e1051bf93.pdf

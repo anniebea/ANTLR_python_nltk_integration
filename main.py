@@ -4,8 +4,8 @@ from grammarTree import *
 
 
 def main(argv):
-    # printGrammarTree(argv)
-    prepTree(argv, "node")
+    printGrammarTree(argv)
+    # prepTree(argv, "node")
 
 
 if __name__ == "__main__":
