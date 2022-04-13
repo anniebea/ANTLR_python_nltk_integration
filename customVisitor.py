@@ -4,12 +4,14 @@ from antlr_py3.Pam_v2Parser import Pam_v2Parser
 
 class CustomVisitor(antlr_py3.Pam_v2Visitor.Pam_v2Visitor):
     varList = {}
+    dataList = []
 
     def visitAssign_stmt(self, ctx: Pam_v2Parser.Assign_stmtContext):
         # print("ASSIGN - Children: " + str(ctx.getChildCount()))
         # print("Child 1: " + str(ctx.getChild(0)))
         # print("Child 2: " + str(ctx.getChild(1)))
         # print("Child 3: " + str(ctx.getChild(2)))
+        # print("Child 4: " + str(ctx.getChild(3)))
         value = 0
 
         if ctx.log_expr() is not None:
@@ -286,8 +288,40 @@ class CustomVisitor(antlr_py3.Pam_v2Visitor.Pam_v2Visitor):
         return CustomVisitor.varList
 
     def visitInput_stmt(self, ctx:Pam_v2Parser.Input_stmtContext):
-        print("READ - Children: " + str(ctx.getChildCount()))
-        print("Child 1: " + str(ctx.getChild(0)))
-        print("Child 2: " + str(ctx.getChild(1)))
-        print("Child 3: " + str(ctx.getChild(2)))
-        return self.visitChildren(ctx)
+        # print("READ - Children: " + str(ctx.getChildCount()))
+        # print("Child 1: " + str(ctx.getChild(0)))
+        # print("Child 2: " + str(ctx.getChild(1)))
+
+        varlist = self.visitVarlist(ctx.getChild(1))
+
+        for i in varlist:
+            CustomVisitor.varList[i] = CustomVisitor.dataList[0]
+            CustomVisitor.dataList.pop(0)
+
+        return CustomVisitor.varList
+
+    def visitOutput_stmt(self, ctx:Pam_v2Parser.Output_stmtContext):
+        # print("PRINT - Children: " + str(ctx.getChildCount()))
+        # print("Child 1: " + str(ctx.getChild(0)))
+        # print("Child 2: " + str(ctx.getChild(1)))
+
+        varlist = self.visitVarlist(ctx.getChild(1))
+
+        for i in varlist:
+            print(str(i) + ": " + str(CustomVisitor.varList[i]))
+
+        return CustomVisitor.varList
+
+    def visitVarlist(self, ctx: Pam_v2Parser.VarlistContext):
+        # print("VARLIST - Children: " + str(ctx.getChildCount()))
+        # print("Child 1: " + str(ctx.getChild(0)))
+        # print("Child 2: " + str(ctx.getChild(1)))
+        # print("Child 3: " + str(ctx.getChild(2)))
+        # print("Child 4: " + str(ctx.getChild(3)))
+
+        resultList = []
+
+        for i in range(0, ctx.getChildCount(), 2):
+            resultList.append(str(ctx.getChild(i)))
+
+        return resultList

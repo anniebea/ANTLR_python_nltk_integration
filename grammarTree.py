@@ -15,6 +15,18 @@ def prepTree(argv, returnVal):
     :return: stringTree of the inputFile text document
     """
     inputFile = FileStream(argv[1])
+
+    dataFile = open(argv[2])
+    num = 0
+    for line in dataFile:
+        for char in line:
+            if char != ",":
+                num = 10 * num + int(char)
+            else:
+                customVisitor.CustomVisitor.dataList.append(num)
+                num = 0
+    customVisitor.CustomVisitor.dataList.append(num)
+
     lexer = Pam_v2Lexer(inputFile)
     stream = CommonTokenStream(lexer)
     parser = Pam_v2Parser(stream)
@@ -23,24 +35,14 @@ def prepTree(argv, returnVal):
     treeString = treeString.replace("( ", "")
     treeString = treeString.replace(" )", "")
 
-    # Listener rules
-    # printer = Interpreter()
-    # walker = ParseTreeWalker()
-    # walker.walk(printer, tree)
-    #
-    # printer.printAllProps()
-
     # Visitor rules
     visitor = customVisitor.CustomVisitor()
     result = visitor.visit(tree)
-    print("RESULT: " + str(result))
 
     if returnVal == "treeString":
         return treeString
     elif returnVal == "tree":
         return tree
-    # elif returnVal == "walker":
-    #     return walker
     else:
         return "hey - unspecified return value"
 
