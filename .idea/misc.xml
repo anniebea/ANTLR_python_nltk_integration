@@ -6,7 +6,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/Pam_v2.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\anitr\OneDrive\Documents\__University\6sem\PVSUS\MD1\ANTLR_py\Pam_v2_gen_py3" />
+          <option name="outputDir" value="antlr_py3" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="" />
@@ -16,8 +16,5 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (ANTLR_py)" project-jdk-type="Python SDK" />
-  <component name="PyPackaging">
-    <option name="earlyReleasesAsUpgrades" value="true" />
-  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (venv)" project-jdk-type="Python SDK" />
 </project>

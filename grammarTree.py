@@ -3,8 +3,8 @@ from antlr4.tree.Trees import Trees
 
 import customVisitor
 
-from Pam_v2_gen_py3.Pam_v2Lexer import Pam_v2Lexer
-from Pam_v2_gen_py3.Pam_v2Parser import Pam_v2Parser
+from antlr_py3.Pam_v2Lexer import Pam_v2Lexer
+from antlr_py3.Pam_v2Parser import Pam_v2Parser
 import nltk
 
 def prepTree(argv, returnVal):

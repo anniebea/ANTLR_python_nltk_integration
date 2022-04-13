@@ -1,8 +1,8 @@
-import Pam_v2_gen_py3.Pam_v2Visitor
-from Pam_v2_gen_py3.Pam_v2Parser import Pam_v2Parser
+import antlr_py3.Pam_v2Visitor
+from antlr_py3.Pam_v2Parser import Pam_v2Parser
 
 
-class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
+class CustomVisitor(antlr_py3.Pam_v2Visitor.Pam_v2Visitor):
     varList = {}
 
     def visitAssign_stmt(self, ctx: Pam_v2Parser.Assign_stmtContext):
