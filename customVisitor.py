@@ -36,7 +36,7 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
 
                 if childVal0 in CustomVisitor.varList:
                     childVal0 = CustomVisitor.varList[childVal0]
-                if childVal0 in CustomVisitor.varList:
+                if childVal2 in CustomVisitor.varList:
                     childVal2 = CustomVisitor.varList[childVal2]
 
                 return float(childVal0) + float(childVal2)
@@ -46,7 +46,7 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
 
                 if childVal0 in CustomVisitor.varList:
                     childVal0 = CustomVisitor.varList[childVal0]
-                if childVal0 in CustomVisitor.varList:
+                if childVal2 in CustomVisitor.varList:
                     childVal2 = CustomVisitor.varList[childVal2]
 
                 return float(childVal0) - float(childVal2)
@@ -66,7 +66,7 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
 
                 if childVal0 in CustomVisitor.varList:
                     childVal0 = CustomVisitor.varList[childVal0]
-                if childVal0 in CustomVisitor.varList:
+                if childVal2 in CustomVisitor.varList:
                     childVal2 = CustomVisitor.varList[childVal2]
 
                 return float(str(childVal0)) * float(str(childVal2))
@@ -76,7 +76,7 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
 
                 if childVal0 in CustomVisitor.varList:
                     childVal0 = CustomVisitor.varList[childVal0]
-                if childVal0 in CustomVisitor.varList:
+                if childVal2 in CustomVisitor.varList:
                     childVal2 = CustomVisitor.varList[childVal2]
 
                 return float(str(childVal0)) / float(str(childVal2))
@@ -284,3 +284,10 @@ class CustomVisitor(Pam_v2_gen_py3.Pam_v2Visitor.Pam_v2Visitor):
             self.visitSeries(ctx.getChild(3))
 
         return CustomVisitor.varList
+
+    def visitInput_stmt(self, ctx:Pam_v2Parser.Input_stmtContext):
+        print("READ - Children: " + str(ctx.getChildCount()))
+        print("Child 1: " + str(ctx.getChild(0)))
+        print("Child 2: " + str(ctx.getChild(1)))
+        print("Child 3: " + str(ctx.getChild(2)))
+        return self.visitChildren(ctx)

@@ -3,13 +3,10 @@ import sys
 from grammarTree import *
 
 
-def processProgr(argv, mode):
-    prepTree(argv, mode)
-
-
 def main(argv):
-    printGrammarTree(argv)
-    # processProgr(argv, "node")
+    # printGrammarTree(argv)
+    prepTree(argv, "node")
+
 
 if __name__ == "__main__":
     main(sys.argv)

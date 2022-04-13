@@ -4,39 +4,9 @@
     <option name="perGrammarGenerationSettings">
       <list>
         <PerGrammarGenerationSettings>
-          <option name="fileName" value="$PROJECT_DIR$/Pam.g4" />
-          <option name="autoGen" value="true" />
-          <option name="outputDir" value="" />
-          <option name="libDir" value="" />
-          <option name="encoding" value="" />
-          <option name="pkg" value="" />
-          <option name="language" value="" />
-          <option name="generateVisitor" value="true" />
-        </PerGrammarGenerationSettings>
-        <PerGrammarGenerationSettings>
-          <option name="fileName" value="$PROJECT_DIR$/Pam_v3.g4" />
-          <option name="autoGen" value="true" />
-          <option name="outputDir" value="" />
-          <option name="libDir" value="" />
-          <option name="encoding" value="" />
-          <option name="pkg" value="" />
-          <option name="language" value="" />
-          <option name="generateVisitor" value="true" />
-        </PerGrammarGenerationSettings>
-        <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/Pam_v2.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="Pam_v2_gen_py3" />
-          <option name="libDir" value="" />
-          <option name="encoding" value="" />
-          <option name="pkg" value="" />
-          <option name="language" value="Python3" />
-          <option name="generateVisitor" value="true" />
-        </PerGrammarGenerationSettings>
-        <PerGrammarGenerationSettings>
-          <option name="fileName" value="*" />
-          <option name="autoGen" value="true" />
-          <option name="outputDir" value="gen_intellij" />
+          <option name="outputDir" value="C:\Users\anitr\OneDrive\Documents\__University\6sem\PVSUS\MD1\ANTLR_py\Pam_v2_gen_py3" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="" />
@@ -47,4 +17,7 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (ANTLR_py)" project-jdk-type="Python SDK" />
+  <component name="PyPackaging">
+    <option name="earlyReleasesAsUpgrades" value="true" />
+  </component>
 </project>
