@@ -1,15 +1,12 @@
-x := True;
-y := True;
-z := 6;
-c := 1;
-
+read c,x,y,z;
 while c < 10 do
     c := c + 1;
     if True and not False then z:=1*2+3*4/5-1
-    else y:=False fi;
+    else y:=123 fi;
 
     if z>600 then
         if z<900 then c:=7
-        else x:=True fi
-    else x:=True fi
-end
+        else x:=1 fi
+    else x:=12 fi
+end;
+write c,x,y,z

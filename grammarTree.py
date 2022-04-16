@@ -11,11 +11,10 @@ def prepTree(argv, returnVal):
     """
     Reads the user specified text document and formats its contents to a stringTree variable.
     :param returnVal: what the function should return
-    :param argv: user specified text document
+    :param argv: user specified text documents
     :return: stringTree of the inputFile text document
     """
     inputFile = FileStream(argv[1])
-
     dataFile = open(argv[2])
     num = 0
     for line in dataFile:

@@ -12,7 +12,7 @@ Pamata struktūras
 
 series              :       stmt (SEMICOLON stmt)*;
 stmt                :       assign_stmt | input_stmt | output_stmt | cond_stmt | loop;
-assign_stmt         :       VARNAME ':=' ( log_expr | expr);
+assign_stmt         :       VARNAME ':=' expr;
 
 /*
 Read un Write struktūras

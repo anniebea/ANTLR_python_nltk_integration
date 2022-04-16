@@ -12,15 +12,8 @@ class CustomVisitor(antlr_py3.Pam_v2Visitor.Pam_v2Visitor):
         # print("Child 2: " + str(ctx.getChild(1)))
         # print("Child 3: " + str(ctx.getChild(2)))
         # print("Child 4: " + str(ctx.getChild(3)))
-        value = 0
 
-        if ctx.log_expr() is not None:
-            value = self.visitLog_expr(ctx.getChild(2))
-
-        if ctx.expr() is not None:
-            value = self.visitExpr(ctx.getChild(2))
-
-        CustomVisitor.varList[str(ctx.getChild(0))] = value
+        CustomVisitor.varList[str(ctx.getChild(0))] = self.visitExpr(ctx.getChild(2))
         return CustomVisitor.varList
 
     def visitExpr(self, ctx: Pam_v2Parser.ExprContext):
@@ -32,25 +25,17 @@ class CustomVisitor(antlr_py3.Pam_v2Visitor.Pam_v2Visitor):
         if str(ctx.getChildCount()) == "1":
             return str(self.visitTerm(ctx.getChild(0)))
         else:
+            childVal0 = str(self.visitTerm(ctx.getChild(0)))
+            childVal2 = str(self.visitTerm(ctx.getChild(2)))
+
+            if childVal0 in CustomVisitor.varList:
+                childVal0 = CustomVisitor.varList[childVal0]
+            if childVal2 in CustomVisitor.varList:
+                childVal2 = CustomVisitor.varList[childVal2]
+
             if str(ctx.getChild(1)) == "+":
-                childVal0 = str(self.visitTerm(ctx.getChild(0)))
-                childVal2 = str(self.visitTerm(ctx.getChild(2)))
-
-                if childVal0 in CustomVisitor.varList:
-                    childVal0 = CustomVisitor.varList[childVal0]
-                if childVal2 in CustomVisitor.varList:
-                    childVal2 = CustomVisitor.varList[childVal2]
-
                 return float(childVal0) + float(childVal2)
             else:
-                childVal0 = str(self.visitTerm(ctx.getChild(0)))
-                childVal2 = str(self.visitTerm(ctx.getChild(2)))
-
-                if childVal0 in CustomVisitor.varList:
-                    childVal0 = CustomVisitor.varList[childVal0]
-                if childVal2 in CustomVisitor.varList:
-                    childVal2 = CustomVisitor.varList[childVal2]
-
                 return float(childVal0) - float(childVal2)
 
     def visitTerm(self, ctx: Pam_v2Parser.TermContext):

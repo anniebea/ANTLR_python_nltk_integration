@@ -1,0 +1,8 @@
+read x,y,z;
+if True then x := 12
+else x := 11 fi;
+if not x>10 then y := 0
+else x := x + 4; z := 0 fi;
+if x=10 then y := 100
+else y := 200 fi;
+write x,y,z
